@@ -181,29 +181,3 @@ document.addEventListener('DOMContentLoaded', function(){
   }catch(e){ console.warn('skill meters init failed', e); }
 
 });
-// Existing code ends here
-// Animate skill meters on scroll
-try{
-  const meters = document.querySelectorAll('.meter-bar');
-  if(meters.length){
-    ...
-  }
-}catch(e){ console.warn('skill meters init failed', e); }
-
-// === Paste mobile menu JS here ===
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.querySelector('.main-nav');
-
-if(menuToggle && mainNav){
-  menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('show');
-  });
-
-  const navLinks = mainNav.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('show');
-    });
-  });
-}
-// === End mobile menu JS ===

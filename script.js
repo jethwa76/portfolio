@@ -16,79 +16,51 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   } catch(e){ console.warn('Typed.js init failed:', e); }
 
-  // Dark Mode Toggle with icon and persistence
-  try{
-    const darkToggle = document.getElementById('darkModeToggle');
-    const iconSun = document.getElementById('iconSun');
-    const iconMoon = document.getElementById('iconMoon');
-    const fallbackSun = document.getElementById('fallbackSun');
-    const fallbackMoon = document.getElementById('fallbackMoon');
-    console.log('darkToggle found:', !!darkToggle, 'iconSun:', !!iconSun, 'iconMoon:', !!iconMoon, 'fallbackSun:', !!fallbackSun, 'fallbackMoon:', !!fallbackMoon);
-    if(darkToggle && iconSun && iconMoon && fallbackSun && fallbackMoon){
-      // Ensure fallback icons are hidden when SVGs render, avoid duplicates
-      try{
-        const csSun = window.getComputedStyle(iconSun);
-        const csMoon = window.getComputedStyle(iconMoon);
-        const sunRendered = csSun && csSun.display !== 'none' && iconSun.getBoundingClientRect && iconSun.getBoundingClientRect().width > 0;
-        const moonRendered = csMoon && csMoon.display !== 'none' && iconMoon.getBoundingClientRect && iconMoon.getBoundingClientRect().width > 0;
-        if(sunRendered) fallbackSun.style.display = 'none';
-        if(moonRendered) fallbackMoon.style.display = 'none';
-      }catch(e){ /* ignore */ }
-      function isRendered(el){
-        try{ const r = el.getBoundingClientRect(); return r && r.width > 0 && window.getComputedStyle(el).display !== 'none'; }catch(e){return false; }
+  // Dark Mode Toggle - Simplified and Reliable
+  const darkToggle = document.getElementById('darkModeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+
+  if (darkToggle && iconSun && iconMoon) {
+    function applyTheme(theme) {
+      const root = document.documentElement;
+      const body = document.body;
+
+      if (theme === 'dark') {
+        root.classList.add('dark');
+        body.classList.add('dark');
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'inline-block';
+        darkToggle.setAttribute('aria-pressed', 'true');
+      } else {
+        root.classList.remove('dark');
+        body.classList.remove('dark');
+        iconSun.style.display = 'inline-block';
+        iconMoon.style.display = 'none';
+        darkToggle.setAttribute('aria-pressed', 'false');
       }
 
-      function applyTheme(theme){
-        const root = document.documentElement;
-        const body = document.body;
-        if(theme === 'dark'){
-          try{ root.classList.add('dark'); body.classList.add('dark'); }catch(e){}
-          try{ iconSun.style.display = 'none'; iconMoon.style.display = 'inline-block'; }catch(e){}
-          try{
-            // show fallback only if SVG not rendered
-            fallbackSun.style.display = 'none';
-            if(!isRendered(iconMoon)) fallbackMoon.style.display = 'inline-block';
-            else fallbackMoon.style.display = 'none';
-          }catch(e){}
-          darkToggle.setAttribute('aria-pressed','true');
-        } else {
-          try{ root.classList.remove('dark'); body.classList.remove('dark'); }catch(e){}
-          try{ iconSun.style.display = 'inline-block'; iconMoon.style.display = 'none'; }catch(e){}
-          try{
-            // show fallback only if SVG not rendered
-            if(!isRendered(iconSun)) fallbackSun.style.display = 'inline-block'; else fallbackSun.style.display = 'none';
-            fallbackMoon.style.display = 'none';
-          }catch(e){}
-          darkToggle.setAttribute('aria-pressed','false');
-        }
-        try { localStorage.setItem('theme', theme); } catch(e){ console.warn('localStorage set failed', e); }
-        // Fallback: set inline background/color to ensure visible change even if CSS rules don't apply
-        try{
-          const comp = getComputedStyle(root);
-          const bg = theme === 'dark' ? comp.getPropertyValue('--bg-dark') || '#121212' : comp.getPropertyValue('--bg-light') || '#f5f7fa';
-          const color = theme === 'dark' ? comp.getPropertyValue('--text-light') || '#fff' : comp.getPropertyValue('--text-dark') || '#333';
-          body.style.background = bg.trim();
-          body.style.color = color.trim();
-        }catch(e){ /* ignore */ }
-        // (debug theme badge removed per design request)
-      }
-
-      // Initialize from stored preference or OS preference
-      const stored = (function(){ try { return localStorage.getItem('theme'); } catch(e){console.warn(e); return null;} })();
-      if(stored) applyTheme(stored);
-      else {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(prefersDark ? 'dark' : 'light');
-      }
-
-      darkToggle.addEventListener('click', ()=>{
-        const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
-        const newTheme = isDark ? 'light' : 'dark';
-        applyTheme(newTheme);
-        darkToggle.setAttribute('aria-pressed', newTheme === 'dark' ? 'true' : 'false');
-      });
+      // Save preference
+      localStorage.setItem('theme', theme);
     }
-  }catch(e){ console.error('Dark toggle error:', e); }
+
+    // Initialize theme
+    const stored = localStorage.getItem('theme');
+    if (stored) {
+      applyTheme(stored);
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    // Toggle on click
+    darkToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      const newTheme = isDark ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+  }
   // Contact Form
   try{
     const contactForm = document.getElementById('contactForm');

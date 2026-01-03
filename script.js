@@ -152,4 +152,90 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }catch(e){ console.warn('skill meters init failed', e); }
 
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Particle Animation
+  try{
+    const canvas = document.getElementById('particle-canvas');
+    if(canvas && !prefersReducedMotion){
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const particleCount = 50;
+      const maxDistance = 120;
+      const speed = 0.5;
+
+      function resizeCanvas(){
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      class Particle {
+        constructor(){
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * speed;
+          this.vy = (Math.random() - 0.5) * speed;
+        }
+        update(){
+          this.x += this.vx;
+          this.y += this.vy;
+          if(this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if(this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw(){
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(37, 99, 235, 0.5)';
+          ctx.fill();
+        }
+      }
+
+      for(let i = 0; i < particleCount; i++){
+        particles.push(new Particle());
+      }
+
+      function animate(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        // Draw connections
+        for(let i = 0; i < particles.length; i++){
+          for(let j = i + 1; j < particles.length; j++){
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if(dist < maxDistance){
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(37, 99, 235, ${1 - dist / maxDistance})`;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+  }catch(e){ console.warn('particle animation init failed', e); }
+
 });
+
+// Resume Download Function
+function downloadResume() {
+  // Open resume in new window
+  const resumeWindow = window.open('resume.html', '_blank');
+
+  // Wait for the window to load, then trigger print dialog
+  resumeWindow.onload = function() {
+    // Small delay to ensure content is fully loaded
+    setTimeout(() => {
+      resumeWindow.print();
+    }, 500);
+  };
+}

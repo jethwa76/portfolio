@@ -269,22 +269,14 @@ formInputs.forEach(input => {
 });
 
 // ===================================
-// Project Filtering (Optional Enhancement)
+// Projects Modal (Removed - No modal in HTML)
 // ===================================
-const viewAllBtn = document.getElementById('viewAllProjects');
-
-if (viewAllBtn) {
-    viewAllBtn.addEventListener('click', () => {
-        // This could navigate to a projects page or show a modal
-        alert('View all projects functionality can be implemented here!');
-    });
-}
 
 // ===================================
 // Scroll Animations
 // ===================================
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.project-card, .skill-category, .timeline-item');
+    const elements = document.querySelectorAll('.project-card, .skill-category, .timeline-item, .highlight-item, .stat-item, .about-card');
     
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -306,8 +298,105 @@ const animateOnScroll = () => {
     });
 };
 
-// Initialize scroll animations
-window.addEventListener('load', animateOnScroll);
+// ===================================
+// Counter Animation for Stats
+// ===================================
+const animateCounters = () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const targetValue = parseInt(target.textContent);
+                let currentValue = 0;
+                const increment = targetValue / 100;
+                const duration = 2000; // 2 seconds
+                const stepTime = duration / 100;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= targetValue) {
+                        target.textContent = targetValue;
+                        clearInterval(timer);
+                    } else {
+                        target.textContent = Math.floor(currentValue);
+                    }
+                }, stepTime);
+                
+                counterObserver.unobserve(target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    statNumbers.forEach(number => {
+        counterObserver.observe(number);
+    });
+};
+
+// ===================================
+// About Section Interactions
+// ===================================
+const initAboutInteractions = () => {
+    // Floating elements hover effect
+    const floatingElements = document.querySelectorAll('.floating-element');
+    
+    floatingElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.transform = 'scale(1.2) rotate(180deg)';
+            element.style.boxShadow = '0 0 30px rgba(6, 182, 212, 0.6)';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = '';
+            element.style.boxShadow = '';
+        });
+    });
+    
+    // Highlight items click effect
+    const highlightItems = document.querySelectorAll('.highlight-item');
+    
+    highlightItems.forEach(item => {
+        item.addEventListener('click', () => {
+            item.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                item.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // About card tilt effect
+    const aboutCard = document.querySelector('.about-card');
+    
+    if (aboutCard) {
+        aboutCard.addEventListener('mousemove', (e) => {
+            const rect = aboutCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            aboutCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+        
+        aboutCard.addEventListener('mouseleave', () => {
+            aboutCard.style.transform = '';
+        });
+    }
+};
+
+// Initialize scroll animations and about interactions
+window.addEventListener('load', () => {
+    animateOnScroll();
+    animateCounters();
+    initAboutInteractions();
+});
 
 // ===================================
 // Particle Background (Optional Enhancement)

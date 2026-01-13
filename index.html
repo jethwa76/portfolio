@@ -16,6 +16,9 @@
             <div class="loading-text">Loading...</div>
         </div>
     </div>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -26,6 +29,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -54,35 +58,30 @@
         </div>
         <div class="container hero-content">
             <div class="hero-text">
-                <div class="hero-greeting fade-in">Hi, I'm</div>
                 <h1 class="hero-name fade-in-delay-1">
-                    <span class="gradient-text">Harsh Jethwa</span>
+                    <span class="gradient-text">Hi, I'm Harsh Jethwa</span>
                 </h1>
-                <div class="hero-title fade-in-delay-2">
-                    <span class="typewriter" id="typewriter"></span>
-                    <span class="cursor">|</span>
-                </div>
-                <p class="hero-description fade-in-delay-3">
-                    I'm Harsh — a Web Developer building modern, responsive, and user-friendly web applications that make an impact. I combine clean code and thoughtful design to bring ideas to life.
+                <p class="hero-description fade-in-delay-2">
+                    I build fast, responsive, and user-centric web applications that bring ideas to life. Currently exploring full-stack development and improving my UI/UX skills.
                 </p>
-                <div class="hero-cta fade-in-delay-4">
+                <div class="hero-cta fade-in-delay-3">
                     <a href="#projects" class="btn btn-primary">
-                        View My Work
+                        View Projects
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        Let's Talk
-                        <i class="fas fa-comments"></i>
+                    <a href="resume.html" class="btn btn-secondary" download>
+                        Download Resume
+                        <i class="fas fa-download"></i>
                     </a>
                 </div>
                 <div class="hero-social fade-in-delay-5">
-                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/jethwa76" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/harsh-jethwa-a2020531b/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:your.email@example.com" aria-label="Email">
+                    <a href="mailto:harshyjethwa2020@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
@@ -97,7 +96,7 @@
                         </div>
                         <div class="window-body">
                             <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
-  <span class="code-key">name</span>: <span class="code-string">'Your Name'</span>,
+  <span class="code-key">name</span>: <span class="code-string">'Harsh Jethwa'</span>,
   <span class="code-key">skills</span>: [<span class="code-string">'React'</span>, <span class="code-string">'Node.js'</span>],
   <span class="code-key">passion</span>: <span class="code-string">'Building cool stuff'</span>
 };</code></pre>
@@ -123,25 +122,23 @@
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
-                        <div class="intro-greeting">Hello, I'm</div>
+                        <!-- <div class="intro-greeting">Hello, I'm</div> -->
                         <h3 class="intro-name">Harsh Jethwa</h3>
                         <div class="intro-role">Computer Engineering Student & Web Developer</div>
                     </div>
 
                     <div class="about-description">
                         <p>
-                            I'm a Web Developer who builds fast, responsive, and user-centric web applications for startups,
-                            students, and tech brands. I focus on writing clean, scalable code and improving user experiences
-                            through thoughtful design and performance optimization.
+                            I'm Harsh Yatinkumar Jethwa, a passionate Web Developer from Gujarat, India, currently pursuing Computer Engineering at parul University. I specialize in building responsive, user-friendly, and scalable web applications using modern web technologies.
                         </p>
                         <p>
-                            Right now, I'm deepening my knowledge in React and backend development to build full-stack
-                            applications. My work focuses on solving real user problems with clean, maintainable code and
-                            intuitive interfaces that drive results.
+                            My approach focuses on clean code, intuitive UI, and practical problem-solving. I enjoy transforming ideas into digital products that provide real value to users. Over the years, I have worked on projects ranging from portfolio websites to web applications with interactive features and database integration.
                         </p>
                         <p>
-                            When I'm not coding, I enjoy exploring UI/UX design and solving logic puzzles. Let's create
-                            something impactful together!
+                            Currently, I'm deepening my knowledge in React, Node.js, and full-stack development to deliver complete solutions from frontend to backend. I also explore UI/UX design principles to create interfaces that are both visually appealing and functional.
+                        </p>
+                        <p>
+                            Outside of coding, I love exploring new tech tools, solving logic problems, and contributing to open-source projects. I am open to internships, freelance projects, and collaborations that challenge me to grow as a developer.
                         </p>
                     </div>
 
@@ -169,18 +166,21 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="highlight-content">
-                                <h4>Team Player</h4>
-                                <p>Collaborative and communicative in all projects</p>
+                                <h4>Hackathons</h4>
+                                <p>3 particepents 
+                                    1 win
+                                    2 finallist
+                                </p>
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="about-stats">
                         <div class="stat-item">
                             <div class="stat-icon">
                                 <i class="fas fa-project-diagram"></i>
                             </div>
-                            <span class="stat-number">3+</span>
+                            <span class="stat-number">5+</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
@@ -194,8 +194,8 @@
                             <div class="stat-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
-                            <span class="stat-number">1+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-number">2ed</span>
+                            <span class="stat-label">year student of computer engineering</span>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                     <div class="about-card">
                         <div class="card-glow"></div>
                         <div class="card-content">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Harsh Jethwa">
+                        <img src="https://i.ibb.co/4Z3kJmVG/IMG-20250620-121452.jpg" alt="IMG-20250620-121452" border="0">
                             <div class="about-overlay">
                                 <div class="overlay-content">
                                     <div class="quote-icon">
@@ -246,7 +246,7 @@
                 <!-- Project 1 -->
                 <div class="project-card featured">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Project 1">
+                        <a href="https://ibb.co/ZzmGGRCx"><img src="https://i.ibb.co/JjQmmWPH/Screenshot-2026-01-13-232908.png" alt="Screenshot-2026-01-13-232908" border="0"></a>
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link" aria-label="View demo">
@@ -260,23 +260,23 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
                         </div>
-                        <h3 class="project-title">AI Analytics Dashboard</h3>
+                        <h3 class="project-title">Personal Portfolio Website</h3>
                         <p class="project-description">
-                            Real-time analytics platform with AI-powered insights. Features include 
-                            data visualization, predictive analytics, and automated reporting.
+                            A responsive portfolio website showcasing my skills, projects, and experience.
+                            Built with modern web technologies and featuring smooth animations.
                         </p>
                         <div class="project-stats">
                             <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>500+ Users</span>
+                                <i class="fas fa-code"></i>
+                                <span>100% Responsive</span>
                             </div>
                             <div class="stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>99.9% Uptime</span>
+                                <i class="fas fa-palette"></i>
+                                <span>Modern UI/UX</span>
                             </div>
                         </div>
                     </div>
@@ -285,7 +285,7 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project 2">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Food Waste Redistribution System">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link" aria-label="View demo">
@@ -299,13 +299,14 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">Firebase</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
                         </div>
-                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <h3 class="project-title">Food Waste Redistribution System</h3>
                         <p class="project-description">
-                            Modern e-commerce solution with real-time inventory, secure payments, 
-                            and intelligent product recommendations.
+                            A platform connecting food donors with those in need, featuring donor registration,
+                            food listing, and distribution tracking to reduce food waste.
                         </p>
                     </div>
                 </div>
@@ -313,7 +314,7 @@
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop" alt="Project 3">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop" alt="Calculator App">
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="#" class="project-link" aria-label="View demo">
@@ -327,23 +328,152 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">React Native</span>
-                            <span class="tag">GraphQL</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
                         </div>
-                        <h3 class="project-title">Fitness Tracking App</h3>
+                        <h3 class="project-title">Calculator App</h3>
                         <p class="project-description">
-                            Cross-platform mobile app for workout tracking, nutrition planning, 
-                            and progress visualization.
+                            A fully functional calculator with basic arithmetic operations, scientific functions,
+                            calculation history, and responsive design for all devices.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop" alt="QR Code Generator">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">QR Code Generator</h3>
+                        <p class="project-description">
+                            A dynamic QR code generator that creates QR codes for URLs, text, and other data.
+                            Features real-time generation, download options, and responsive design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop" alt="To Do List App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">To Do List App</h3>
+                        <p class="project-description">
+                            An interactive to-do list application with task management features including add,
+                            edit, delete, and mark as complete. Includes local storage for data persistence.
                         </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="view-all-container">
-                <button class="btn btn-outline" id="viewAllProjects">
-                    View All Projects
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+    <!-- Blog Section -->
+    <section id="blog" class="section blog-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Thoughts</span>
+                <h2 class="section-title">Latest Blog Posts</h2>
+                <p class="section-subtitle">Sharing insights and experiences from my development journey</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop" alt="Getting Started with React">
+                        <div class="blog-category">React</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 15, 2024</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">Getting Started with React: A Beginner's Guide</h3>
+                        <p class="blog-excerpt">
+                            Learn the fundamentals of React, from setting up your first component to building interactive user interfaces. Perfect for developers making the transition to modern frontend development.
+                        </p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop" alt="CSS Grid vs Flexbox">
+                        <div class="blog-category">CSS</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 10, 2024</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3 class="blog-title">CSS Grid vs Flexbox: When to Use Which</h3>
+                        <p class="blog-excerpt">
+                            Understanding the differences between CSS Grid and Flexbox, with practical examples and use cases to help you choose the right layout system for your projects.
+                        </p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop" alt="Node.js Best Practices">
+                        <div class="blog-category">Backend</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">Jan 5, 2024</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3 class="blog-title">Node.js Best Practices for Production Applications</h3>
+                        <p class="blog-excerpt">
+                            Essential practices for building scalable and maintainable Node.js applications, including error handling, security, and performance optimization techniques.
+                        </p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="blog-cta">
+                <a href="#" class="btn btn-secondary">
+                    View All Posts
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -353,8 +483,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Capabilities</span>
-                <h2 class="section-title">Skills & Technologies</h2>
-                <p class="section-subtitle">Tools and technologies I work with</p>
+                <h2 class="section-title">My Skills</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
             </div>
 
             <div class="skills-grid">
@@ -367,17 +497,7 @@
                     <div class="skills-list">
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">React / Next.js</span>
-                                <span class="skill-level">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">TypeScript</span>
-                                <span class="skill-level">90%</span>
+                                <span class="skill-name">HTML5</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 90%"></div>
@@ -385,11 +505,34 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Tailwind CSS</span>
-                                <span class="skill-level">92%</span>
+                                <span class="skill-name">CSS3</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 92%"></div>
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Bootstrap</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Tailwind</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
                             </div>
                         </div>
                     </div>
@@ -404,66 +547,84 @@
                     <div class="skills-list">
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Node.js / Express</span>
-                                <span class="skill-level">88%</span>
+                                <span class="skill-name">Node.js (learning)</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 88%"></div>
+                                <div class="skill-progress" style="--progress: 70%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Python / Django</span>
-                                <span class="skill-level">85%</span>
+                                <span class="skill-name">Express.js (learning)</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 85%"></div>
+                                <div class="skill-progress" style="--progress: 65%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">PostgreSQL / MongoDB</span>
-                                <span class="skill-level">87%</span>
+                                <span class="skill-name">MySQL</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 87%"></div>
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tools & DevOps -->
+                <!-- Tools & Other -->
                 <div class="skill-category">
                     <div class="category-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="category-title">Tools & DevOps</h3>
+                    <h3 class="category-title">Tools & Other</h3>
                     <div class="skills-list">
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Git / GitHub</span>
-                                <span class="skill-level">93%</span>
+                                <span class="skill-name">Git & GitHub</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 93%"></div>
+                                <div class="skill-progress" style="--progress: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Docker / K8s</span>
-                                <span class="skill-level">82%</span>
+                                <span class="skill-name">VS Code</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 82%"></div>
+                                <div class="skill-progress" style="--progress: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">AWS / Azure</span>
-                                <span class="skill-level">80%</span>
+                                <span class="skill-name">Figma</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Problem Solving</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Debugging</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
                             </div>
                         </div>
                     </div>
@@ -586,54 +747,71 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Journey</span>
-                <h2 class="section-title">Work Experience</h2>
-                <p class="section-subtitle">My professional background</p>
+                <h2 class="section-title">Experience & Education</h2>
+                <p class="section-subtitle">My educational background and project experience</p>
             </div>
 
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3 class="timeline-title">B.Tech in Computer Engineering</h3>
+                        <div class="timeline-company">Parul University</div>
+                        <p class="timeline-description">
+                            Currently pursuing Bachelor's degree in Computer Engineering, focusing on web development,
+                            software engineering, and modern technologies.
+                        </p>
+                        <ul class="timeline-achievements">
+                            <li>Specialized in full-stack web development</li>
+                            <li>Completed multiple mini-projects and portfolio website</li>
+                            <li>Learning advanced concepts in data structures and algorithms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3 class="timeline-title">Higher Secondary Education</h3>
+                        <div class="timeline-company">Science Stream</div>
+                        <p class="timeline-description">
+                            Completed higher secondary education with focus on Mathematics, Physics, and Computer Science,
+                            building foundation for engineering studies.
+                        </p>
+                        <ul class="timeline-achievements">
+                            <li>Strong foundation in mathematics and logical thinking</li>
+                            <li>Introduction to programming concepts</li>
+                            <li>Developed interest in technology and software development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
                         <div class="timeline-date">2023 - Present</div>
-                        <h3 class="timeline-title">Senior Full Stack Developer</h3>
-                        <div class="timeline-company">Tech Company Inc.</div>
+                        <h3 class="timeline-title">Personal Projects & Learning</h3>
+                        <div class="timeline-company">Self-Directed Development</div>
                         <p class="timeline-description">
-                            Leading development of enterprise applications, mentoring junior developers, 
-                            and implementing best practices across teams.
+                            Building personal projects to apply theoretical knowledge and gain practical experience
+                            in web development and problem-solving.
                         </p>
                         <ul class="timeline-achievements">
-                            <li>Increased system performance by 40%</li>
-                            <li>Led team of 5 developers</li>
-                            <li>Reduced deployment time by 60%</li>
+                            <li>Developed responsive portfolio website</li>
+                            <li>Created food waste redistribution system concept</li>
+                            <li>Built calculator app with advanced features</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2021 - 2023</div>
-                        <h3 class="timeline-title">Full Stack Developer</h3>
-                        <div class="timeline-company">Innovation Labs</div>
-                        <p class="timeline-description">
-                            Developed and maintained multiple client projects using modern web technologies.
-                        </p>
-                        <ul class="timeline-achievements">
-                            <li>Built 15+ production applications</li>
-                            <li>Improved code quality metrics by 35%</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019 - 2021</div>
-                        <h3 class="timeline-title">Junior Developer</h3>
-                        <div class="timeline-company">StartUp XYZ</div>
-                        <p class="timeline-description">
-                            Started career building web applications and learning industry best practices.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -837,8 +1015,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">Have a project in mind? Let's create something amazing!</p>
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">I'm open to internships, freelance projects, and collaborations. Let's build something impactful together!</p>
             </div>
 
             <div class="contact-content">
@@ -851,7 +1029,7 @@
                             </div>
                             <div class="contact-details">
                                 <div class="contact-label">Email</div>
-                                <a href="mailto:your.email@example.com">your.email@example.com</a>
+                                <a href="mailto:harshyourmail@gmail.com">harshyourmail@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -860,7 +1038,7 @@
                             </div>
                             <div class="contact-details">
                                 <div class="contact-label">LinkedIn</div>
-                                <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a>
+                                <a href="https://linkedin.com/in/jethwa76" target="_blank">linkedin.com/in/jethwa76</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -869,7 +1047,7 @@
                             </div>
                             <div class="contact-details">
                                 <div class="contact-label">GitHub</div>
-                                <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                                <a href="https://github.com/jethwa76" target="_blank">github.com/jethwa76</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -878,7 +1056,7 @@
                             </div>
                             <div class="contact-details">
                                 <div class="contact-label">Location</div>
-                                <span>Your City, Country</span>
+                                <span>Gujarat, India</span>
                             </div>
                         </div>
                     </div>
@@ -923,7 +1101,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo-text">YourName<span class="logo-dot">.</span></div>
+                    <div class="logo-text">Harsh<span class="logo-dot">.</span></div>
                     <p class="footer-tagline">Crafting digital experiences</p>
                 </div>
                 <div class="footer-links">
@@ -937,22 +1115,24 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/jethwa76" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/jethwa76" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:your.email@example.com" aria-label="Email">
+                    <a href="mailto:harshyourmail@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Your Name. Built with passion and code.</p>
+                <p>&copy; 2024 Harsh Jethwa. Built with passion and code.</p>
             </div>
         </div>
     </footer>
+
+
 
     <script src="script.js"></script>
 </body>

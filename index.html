@@ -1,694 +1,572 @@
-z<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harsh Jethwa | Portfolio</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- AOS Animation Library -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Font Awesome for Social Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="style.css">
-<!-- Early theme application to avoid flash -->
-<script>
-  (function(){
-    try{
-      var t = localStorage.getItem('theme');
-      function setBothDark(on){
-        try{ if(on){ document.documentElement.classList.add('dark'); document.body.classList.add('dark'); } else { document.documentElement.classList.remove('dark'); document.body.classList.remove('dark'); } }catch(e){}
-      }
-      if(t === 'dark') setBothDark(true);
-      else if(t === 'light') setBothDark(false);
-      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setBothDark(true);
-    }catch(e){}
-  })();
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio - Full Stack Developer">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-<!-- Particle canvas for background animation -->
-<canvas id="particle-canvas"></canvas>
-
-<header class="site-header">
-  <div class="header-inner">
-    <h1 class="site-tagline">Design • Develop • Deploy</h1>
-    <div class="left-controls">
-      <nav class="main-nav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="resume.html" class="nav-link" target="_blank">Resume</a>
-      </nav>
-    </div>
-
-    <div class="header-actions">
-      <!-- Dark mode toggle moved to the right side -->
-      <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
-        <span class="icon-wrap">
-          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.04 1.05l1.79-1.8-1.79-1.79-1.8 1.79 1.8 1.8zM17 11v2h3v-2h-3zM12 6a6 6 0 100 12 6 6 0 000-12zm4.24 11.16l1.8 1.79 1.79-1.79-1.79-1.8-1.8 1.8zM11 23h2v-3h-2v3zM4.21 18.36l1.79 1.79 1.8-1.79-1.8-1.8-1.79 1.8z"/></svg>
-          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </span>
-        <span id="fallbackSun" class="fallback-icon" aria-hidden="true">☀</span>
-        <span id="fallbackMoon" class="fallback-icon" aria-hidden="true">☾</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-
-<main>
-<section id="home">
-  <div class="hero">
-    <div class="hero-left">
-      <h1 class="hero-title">Aspiring Full-Stack Developer | Computer Engineering Student</h1>
-      <p class="hero-sub">Building scalable web solutions with modern tech stack</p>
-      <p class="hero-typed">I am a  <span class="typed"></span></p>
-      <div class="hero-ctas">
-        <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
-        <button class="btn-secondary" onclick="downloadResume()">Download Resume</button>
-        <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
-      </div>
-      
-    </div>
-    <div class="hero-right">
-      <div class="hero-avatar">
-        <!-- Replace assets/photo.jpg with your real photo -->
-        <img src=""><img src="https://i.ibb.co/cKPzgZRp/IMG-20250523-110337-793.webp" alt="IMG-20250523-110337-793" border="0" /></a>" alt="Young man standing outdoors wearing a light blue button-up shirt and dark backpack, facing the camera with a slight smile; wearing a blue lanyard with an ID card (text not legible); blurred urban street and greenery in the background; overall friendly and confident tone" border="0"></a>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="floating-shape1"></div>
-  <div class="floating-shape2"></div>
-  <div class="floating-shape3"></div>
-</section>
-
-<section id="about" data-aos="fade-up">
-  <h2>ABOUT</h2>
-  <div class="about-grid">
-    <div class="about-col">
-      <div class="about-item">-> I'm Harsh Jethwa, a Computer Engineering student passionate about building scalable web solutions that solve real problems.</div>
-      <div class="about-item">-> I specialize in full-stack development, creating user-centric applications with modern technologies like React, Node.js, and SQL databases.</div>
-      <div class="about-item">-> My engineering foundation in C, C++, and Java gives me strong problem-solving skills and algorithmic thinking essential for efficient code.</div>
-      <div class="about-item">-> I focus on writing clean, maintainable code and implementing best practices for performance, security, and accessibility.</div>
-      <div class="about-item">-> I'm committed to continuous learning, staying current with industry trends, and contributing to collaborative development environments.</div>
-      <div class="about-item">-> My projects demonstrate practical application of concepts, from responsive UIs to robust backend systems.</div>
-      <div class="about-item">-> I believe in the power of technology to create meaningful impact and am eager to bring fresh perspectives to innovative teams.</div>
-    </div>
-  </div>
-  <div class="why-hire-section" data-aos="fade-up">
-    <h3>Why Hire Me?</h3>
-    <div class="why-hire-grid">
-      <div class="why-hire-card">
-        <h4>🚀 Quick Learner & Adaptable</h4>
-        <p>Strong foundation in computer science with proven ability to master new technologies and frameworks rapidly.</p>
-      </div>
-      <div class="why-hire-card">
-        <h4>💡 Problem-Solving Mindset</h4>
-        <p>Engineering background combined with practical development experience to tackle complex challenges effectively.</p>
-      </div>
-      <div class="why-hire-card">
-        <h4>🤝 Team Player</h4>
-        <p>Excellent communication skills and collaborative approach, ready to contribute to dynamic development teams.</p>
-      </div>
-      <div class="why-hire-card">
-        <h4>⚡ Results-Driven</h4>
-        <p>Focus on delivering high-quality, scalable solutions that meet user needs and business objectives.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="proof-consistency-section" data-aos="fade-up">
-    <h3>Proof of Consistency</h3>
-    <p class="section-sub">Demonstrating continuous learning and coding dedication</p>
-    <div class="proof-consistency-grid">
-      <div class="proof-consistency-card">
-        <div class="consistency-header">
-          <i class="fab fa-github"></i>
-          <h4>GitHub Activity</h4>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading...</div>
         </div>
-        <div class="github-graph">
-          <img src="https://ghchart.rshah.org/2563eb/jethwa76" alt="GitHub contribution graph" loading="lazy">
-        </div>
-        <div class="consistency-stats">
-          <div class="stat">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Contributions</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">25+</span>
-            <span class="stat-label">Repositories</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Stars</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="proof-consistency-card">
-        <div class="consistency-header">
-          <i class="fas fa-code"></i>
-          <h4>LeetCode Progress</h4>
-        </div>
-        <div class="leetcode-stats">
-          <div class="problem-stats">
-            <div class="problem-category">
-              <span class="category-label">Easy</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 85%"></div>
-              </div>
-              <span class="category-count">85/100</span>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text"><span class="logo-dot">DESIGN - DEVLOP - DEPLOY</span></span>
             </div>
-            <div class="problem-category">
-              <span class="category-label">Medium</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 60%"></div>
-              </div>
-              <span class="category-count">60/100</span>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <div class="problem-category">
-              <span class="category-label">Hard</span>
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 25%"></div>
-              </div>
-              <span class="category-count">25/100</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting fade-in">Hi, I'm</div>
+                <h1 class="hero-name fade-in-delay-1">
+                    <span class="gradient-text">Harsh jethwa</span>
+                </h1>
+                <div class="hero-title fade-in-delay-2">
+                    <span class="typewriter" id="typewriter"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description fade-in-delay-3">
+                    I craft exceptional digital experiences with modern technologies.
+                    Passionate about clean code, innovative solutions, and user-centric design.
+                </p>
+                <div class="hero-cta fade-in-delay-4">
+                    <a href="#projects" class="btn btn-primary">
+                        View My Work
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        Let's Talk
+                        <i class="fas fa-comments"></i>
+                    </a>
+                </div>
+                <div class="hero-social fade-in-delay-5">
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="leetcode-badges">
-            <span class="badge">Problem Solver</span>
-            <span class="badge">Consistent Learner</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="proof-consistency-card">
-        <div class="consistency-header">
-          <i class="fas fa-certificate"></i>
-          <h4>Certifications</h4>
-        </div>
-        <div class="certifications-list">
-          <div class="cert-item">
-            <div class="cert-icon">
-              <i class="fab fa-microsoft"></i>
+            <div class="hero-image fade-in-delay-3">
+                <div class="floating-card">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="window-body">
+                            <pre><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
+  <span class="code-key">name</span>: <span class="code-string">'Your Name'</span>,
+  <span class="code-key">skills</span>: [<span class="code-string">'React'</span>, <span class="code-string">'Node.js'</span>],
+  <span class="code-key">passion</span>: <span class="code-string">'Building cool stuff'</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="cert-details">
-              <h4>Azure Fundamentals (AZ-900)</h4>
-              <p>Microsoft Certified • 2024</p>
+        </div>
+        <a href="#projects" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Check out some of my recent work</p>
             </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-icon">
-              <i class="fas fa-code"></i>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Project 1">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <h3 class="project-title">AI Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Real-time analytics platform with AI-powered insights. Features include 
+                            data visualization, predictive analytics, and automated reporting.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>500+ Users</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>99.9% Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project 2">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            Modern e-commerce solution with real-time inventory, secure payments, 
+                            and intelligent product recommendations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop" alt="Project 3">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">GraphQL</span>
+                        </div>
+                        <h3 class="project-title">Fitness Tracking App</h3>
+                        <p class="project-description">
+                            Cross-platform mobile app for workout tracking, nutrition planning, 
+                            and progress visualization.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="cert-details">
-              <h4>Full Stack Web Development</h4>
-              <p>XYZ Academy • 2024</p>
+
+            <div class="view-all-container">
+                <button class="btn btn-outline" id="viewAllProjects">
+                    View All Projects
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-icon">
-              <i class="fab fa-google"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Capabilities</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
             </div>
-            <div class="cert-details">
-              <h4>Google IT Support Professional</h4>
-              <p>Coursera • 2023</p>
+
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="category-title">Frontend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React / Next.js</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Tailwind CSS</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="category-title">Backend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Node.js / Express</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python / Django</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">PostgreSQL / MongoDB</span>
+                                <span class="skill-level">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & DevOps -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="category-title">Tools & DevOps</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git / GitHub</span>
+                                <span class="skill-level">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker / K8s</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">AWS / Azure</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
-  <p class="section-sub">Technologies and tools I excel at</p>  
-  
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Journey</span>
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-subtitle">My professional background</p>
+            </div>
 
-  <div class="skill-shell">
-    <div class="skill-header">
-      <div>
-        <p class="eyebrow">Core Stack</p>
-        <h3>Building clean, responsive, and reliable experiences</h3>
-      </div>
-      <div class="skill-badges">
-        <span class="badge primary"><i class="fa-solid fa-star"></i> Frontend First</span>
-        <span class="badge ghost"><i class="fa-solid fa-gauge-high"></i> Performance minded</span>
-        <span class="badge ghost"><i class="fa-solid fa-people-group"></i> Team player</span>
-      </div>
-    </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3 class="timeline-title">Senior Full Stack Developer</h3>
+                        <div class="timeline-company">Tech Company Inc.</div>
+                        <p class="timeline-description">
+                            Leading development of enterprise applications, mentoring junior developers, 
+                            and implementing best practices across teams.
+                        </p>
+                        <ul class="timeline-achievements">
+                            <li>Increased system performance by 40%</li>
+                            <li>Led team of 5 developers</li>
+                            <li>Reduced deployment time by 60%</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="card-head">
-          <div class="pill">Frontend</div>
-          <p>UI/UX obsessed, semantic structure, accessibility aware.</p>
-        </div>
-        <div class="chip-row">
-          <span class="chip">HTML5</span>
-          <span class="chip">CSS3</span>
-          <span class="chip">Sass</span>
-          <span class="chip">Responsive Design</span>
-          <span class="chip">A11y</span>
-        </div>
-        <div class="meter">
-          <div class="label">Semantic HTML</div>
-          <div class="meter-bar" data-level="95"><span>95%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">CSS / Modern layouts</div>
-          <div class="meter-bar" data-level="60"><span>60%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">JavaScript (ES6+)</div>
-          <div class="meter-bar" data-level="50"><span>50%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">React</div>
-          <div class="meter-bar" data-level="40"><span>40%</span></div>
-        </div>
-        <div class="proof-links">
-          <a href="https://github.com/jethwa76/portfolio" target="_blank" class="proof-link">Portfolio Project</a>
-          <a href="https://github.com/jethwa76/taskflow" target="_blank" class="proof-link">TaskFlow App</a>
-        </div>
-      </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <h3 class="timeline-title">Full Stack Developer</h3>
+                        <div class="timeline-company">Innovation Labs</div>
+                        <p class="timeline-description">
+                            Developed and maintained multiple client projects using modern web technologies.
+                        </p>
+                        <ul class="timeline-achievements">
+                            <li>Built 15+ production applications</li>
+                            <li>Improved code quality metrics by 35%</li>
+                        </ul>
+                    </div>
+                </div>
 
-      <div class="skill-card">
-        <div class="card-head">
-          <div class="pill alt">CS</div>
-          <p>Server basics, data modeling, and problem-solving fundamentals.</p>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <h3 class="timeline-title">Junior Developer</h3>
+                        <div class="timeline-company">StartUp XYZ</div>
+                        <p class="timeline-description">
+                            Started career building web applications and learning industry best practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="chip-row">
-          <span class="chip">Node.js</span>
-          <span class="chip">Express</span>
-          <span class="chip">SQL</span>
-          <span class="chip">DBMS</span>
-          <!-- <span class="chip">API Design</span> -->
-        </div>
-        <div class="meter">
-          <div class="label">Node.js / APIs</div>
-          <div class="meter-bar" data-level="30"><span>32%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">SQL & schema design</div>
-          <div class="meter-bar" data-level="80"><span>80%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">Problem solving (C / Java)</div>
-          <div class="meter-bar" data-level="85"><span>84%</span></div>
-        </div>
-        <div class="meter">
-          <div class="label">Version control</div>
-          <div class="meter-bar" data-level="45"><span>45%</span></div>
-        </div>
-      </div>
+    </section>
 
-      <div class="skill-card span-2">
-        <div class="card-head">
-          <div class="pill ghost">Tools & Workflow</div>
-          <p>Everything I use to ship faster and keep quality high.</p>
-        </div>
-        <div class="chip-row wrap">
-          <span class="chip">Git</span>
-          <span class="chip">GitHub</span>
-          <span class="chip">VS Code</span>
-          <span class="chip">Figma</span>
-          <span class="chip">Postman</span>
-          <span class="chip">Netlify</span>
-          <span class="chip">Linux / CLI</span>
-          <span class="chip">Testing basics</span>
-        </div>
-        <div class="meter compact">
-          <div class="label">Collaboration & reviews</div>
-          <div class="meter-bar" data-level="30"><span>30%</span></div>
-        </div>
-        <div class="meter compact">
-          <div class="label">Shipping & deployment</div>
-          <div class="meter-bar" data-level="10"><span>10%</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Feedback</span>
+                <h2 class="section-title">What People Say</h2>
+            </div>
 
-<section id="projects" data-aos="fade-up">
-  <h2>PROJECTS</h2>
-  <p class="section-sub">Showcasing real-world problem-solving through code</p>
-  <div class="project-filters">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="web">Web Apps</button>
-    <button class="filter-btn" data-category="fullstack">Full-Stack</button>
-    <button class="filter-btn" data-category="api">API</button>
-  </div>
-  <div class="projects-container">
-    <article class="project-card flagship" data-category="web fullstack" data-aos="zoom-in">
-      <div class="flagship-badge">🚀 Flagship Project</div>
-      <h3>Personal Portfolio Website</h3>
-      <div class="project-meta">
-        <span class="project-role">Full-Stack Developer</span>
-        <span class="project-tech">React • Node.js • MongoDB</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Needed a professional platform to showcase technical skills and attract opportunities in competitive tech market.
-        </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Built a responsive portfolio with dark/light mode, smooth animations, and integrated contact system.
-        </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Implementing smooth theme transitions, optimizing performance for mobile devices, ensuring cross-browser compatibility.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Increased professional inquiries by 300%, received 15+ interview opportunities, demonstrated full-stack capabilities.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/portfolio" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-      <div class="project-screenshots">
-        <img src="https://via.placeholder.com/300x200/2563eb/ffffff?text=Portfolio+Screenshot" alt="Portfolio website screenshot" loading="lazy">
-      </div>
-    </div>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            "Exceptional developer with great attention to detail. Delivered our project 
+                            ahead of schedule with outstanding quality."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="John Doe">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">John Doe</div>
+                            <div class="author-role">CEO, Tech Startup</div>
+                        </div>
+                    </div>
+                </div>
 
-    <article class="project-card" data-category="web" data-aos="zoom-in">
-      <h3>TaskFlow - Advanced To-Do Application</h3>
-      <div class="project-meta">
-        <span class="project-role">Frontend Developer</span>
-        <span class="project-tech">React • Local Storage • CSS3</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Students and professionals struggle with task organization and productivity tracking.
-        </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Developed a feature-rich task manager with categories, priorities, due dates, and progress tracking.
-        </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Implementing complex state management for task relationships, creating intuitive drag-and-drop functionality.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Used daily by 50+ users, improved personal productivity by 40%, learned advanced React patterns.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/taskflow" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-    </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            "A talented professional who brings creativity and technical expertise 
+                            to every project. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Jane Smith">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Jane Smith</div>
+                            <div class="author-role">Product Manager, BigCorp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <article class="project-card" data-category="web api" data-aos="zoom-in">
-      <h3>QR Code Generator API</h3>
-      <div class="project-meta">
-        <span class="project-role">Backend Developer</span>
-        <span class="project-tech">Node.js • Express • QR Code Library</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Businesses need quick QR code generation for marketing materials and digital transformation.
+            <div class="testimonial-controls">
+                <button class="testimonial-btn" id="prevTestimonial" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-btn" id="nextTestimonial" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Built a RESTful API with multiple QR formats, customization options, and high-performance generation.
-        </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Optimizing QR generation speed, handling various input formats, implementing proper error handling.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Processed 10,000+ QR codes, integrated into 3 business applications, reduced manual work by 80%.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/qr-api" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-    </div>
+    </section>
 
-    <article class="project-card" data-category="fullstack" data-aos="zoom-in">
-      <h3>E-Commerce Dashboard</h3>
-      <div class="project-meta">
-        <span class="project-role">Full-Stack Developer</span>
-        <span class="project-tech">React • Node.js • PostgreSQL • Stripe</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Small businesses need affordable e-commerce solutions with inventory management and analytics.
-        </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Created a complete e-commerce platform with admin dashboard, payment integration, and real-time inventory.
-        </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Implementing secure payment processing, designing scalable database architecture, ensuring data consistency.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Helped 2 local businesses increase online sales by 150%, learned enterprise-level development practices.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/ecommerce-dashboard" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Have a project in mind? Let's create something amazing!</p>
+            </div>
 
-    <article class="project-card" data-category="api" data-aos="zoom-in">
-      <h3>Weather Analytics API</h3>
-      <div class="project-meta">
-        <span class="project-role">API Developer</span>
-        <span class="project-tech">Python • Flask • OpenWeather API • Redis</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Applications need reliable weather data with caching and analytics for better user experience.
-        </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Built a weather API with caching, historical data analysis, and location-based forecasts.
-        </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Managing API rate limits, implementing efficient caching strategies, handling location data accuracy.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Served 25,000+ API calls monthly, integrated into 5 mobile apps, improved response time by 300%.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/weather-api" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-    </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Contact Information</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-label">Email</div>
+                                <a href="mailto:your.email@example.com">your.email@example.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-label">LinkedIn</div>
+                                <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-label">GitHub</div>
+                                <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <article class="project-card" data-category="web" data-aos="zoom-in">
-      <h3>Collaborative Code Editor</h3>
-      <div class="project-meta">
-        <span class="project-role">Real-time App Developer</span>
-        <span class="project-tech">React • Socket.io • Monaco Editor • Node.js</span>
-      </div>
-      <div class="project-content">
-        <div class="project-problem">
-          <strong>Problem:</strong> Remote teams need real-time collaboration tools for pair programming and code reviews.
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-input" required>
+                        <label for="name" class="form-label">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-input" required>
+                        <label for="email" class="form-label">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" class="form-input" required>
+                        <label for="subject" class="form-label">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" class="form-input" rows="5" required></textarea>
+                        <label for="message" class="form-label">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Send Message
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-        <div class="project-solution">
-          <strong>Solution:</strong> Developed a real-time collaborative code editor with syntax highlighting, user cursors, and chat functionality.
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-text">YourName<span class="logo-dot">.</span></div>
+                    <p class="footer-tagline">Crafting digital experiences</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Your Name. Built with passion and code.</p>
+            </div>
         </div>
-        <div class="project-challenges">
-          <strong>Challenges:</strong> Implementing real-time synchronization, handling concurrent edits, managing WebSocket connections.
-        </div>
-        <div class="project-impact">
-          <strong>Impact:</strong> Used by 20+ developers for remote interviews, reduced code review time by 50%, mastered real-time technologies.
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/jethwa76/code-editor" target="_blank" class="project-link github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="#" class="project-link demo">
-          <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<section id="contact" data-aos="fade-up">
-  <h2>Contact Me</h2>
-  <p class="section-sub">Have an idea, internship, or collaboration in mind? Drop a message and I’ll get back to you.</p>
-
-  <div class="contact-grid">
-    <div class="contact-card">
-      <h3>Let’s work together</h3>
-      <p class="contact-note">Tell me a bit about what you’re building or learning.</p>
-      <div class="availability-info">
-        <i class="fas fa-clock"></i>
-        <span>Typically responds within 24 hours</span>
-      </div>
-      <form id="contactForm">
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Enter your full name" required>
-          <span class="error-message" id="nameError"></span>
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="your.email@example.com" required>
-          <span class="error-message" id="emailError"></span>
-        </div>
-        <div class="form-group">
-          <textarea name="message" rows="5" placeholder="Tell me about your project, idea, or how we can collaborate..." required></textarea>
-          <span class="error-message" id="messageError"></span>
-        </div>
-        <button type="submit" class="btn-primary">Send Message</button>
-      </form>
-      <p id="formMessage"></p>
-    </div>
-
-    <div class="contact-side">
-      <div class="contact-info-block">
-        <h3>Prefer direct contact?</h3>
-        <ul>
-          <li><i class="fas fa-envelope"></i><span>Email: harshyjethwa2020@gmail.com</span></li>
-          <li><i class="fab fa-whatsapp"></i><span>WhatsApp: +91 79906 03019</span></li>
-          <li><i class="fas fa-location-dot"></i><span>Vadodara, Gujarat, India</span></li>
-          <li><i class="fas fa-file-alt"></i> <a href="resume.html" target="_blank"><span>Download Resume</span></a></li>
-        </ul>
-      </div>
-      <div class="social-links">
-        <a href="https://github.com/jethwa76" target="_blank" title="GitHub Profile" aria-label="Visit my GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/harsh-jethwa-a2020531b/" target="_blank" title="LinkedIn Profile" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://wa.me/917990603019" target="_blank" title="WhatsApp" aria-label="Message on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:harshyjethwa2020@gmail.com" title="Send Email" aria-label="Send me an email"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="resume-preview" data-aos="fade-up">
-  <h2>Resume Preview</h2>
-  <p class="section-sub">Quick overview of my professional background</p>
-  <div class="resume-preview-container">
-    <iframe src="resume.html" width="100%" height="600" style="border: none; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></iframe>
-    <div class="resume-actions">
-      <button class="btn-primary" onclick="window.open('resume.html', '_blank')">View Full Resume</button>
-      <button class="btn-secondary" onclick="downloadResume()">Download PDF</button>
-    </div>
-  </div>
-</section>
-
-<section id="blog" data-aos="fade-up">
-  <h2>Technical Blog</h2>
-  <p class="section-sub">Sharing insights and learnings from my development journey</p>
-  <div class="blog-grid">
-    <article class="blog-card" data-aos="zoom-in">
-      <div class="blog-image">
-        <img src="https://via.placeholder.com/400x250/2563eb/ffffff?text=React+Hooks+Guide" alt="React Hooks Guide" loading="lazy">
-      </div>
-      <div class="blog-content">
-        <div class="blog-meta">
-          <span class="blog-date">Dec 15, 2024</span>
-          <span class="blog-category">React</span>
-        </div>
-        <h3>Mastering React Hooks: A Complete Guide</h3>
-        <p>Deep dive into useState, useEffect, useContext, and custom hooks with practical examples and best practices for modern React development.</p>
-        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <article class="blog-card" data-aos="zoom-in">
-      <div class="blog-image">
-        <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Node.js+Performance" alt="Node.js Performance Optimization" loading="lazy">
-      </div>
-      <div class="blog-content">
-        <div class="blog-meta">
-          <span class="blog-date">Nov 28, 2024</span>
-          <span class="blog-category">Backend</span>
-        </div>
-        <h3>Optimizing Node.js Applications for Production</h3>
-        <p>Learn essential techniques for improving Node.js app performance, including clustering, caching strategies, and memory management.</p>
-        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-
-    <article class="blog-card" data-aos="zoom-in">
-      <div class="blog-image">
-        <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=CSS+Grid+Layout" alt="CSS Grid Layout" loading="lazy">
-      </div>
-      <div class="blog-content">
-        <div class="blog-meta">
-          <span class="blog-date">Nov 10, 2024</span>
-          <span class="blog-category">CSS</span>
-        </div>
-        <h3>CSS Grid vs Flexbox: When to Use What</h3>
-        <p>Comprehensive comparison of CSS Grid and Flexbox with real-world examples and practical use cases for modern web layouts.</p>
-        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </article>
-  </div>
-</section>
-
-
-
-<section id="video-walkthrough" data-aos="fade-up">
-  <h2>Portfolio Walkthrough</h2>
-  <p class="section-sub">See my work in action and learn about my development process</p>
-  <div class="video-container">
-    <div class="video-wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Portfolio Walkthrough Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div class="video-info">
-      <h3>What You'll Learn</h3>
-      <ul>
-        <li><i class="fas fa-check"></i> My development workflow and tools</li>
-        <li><i class="fas fa-check"></i> How I approach problem-solving</li>
-        <li><i class="fas fa-check"></i> Project planning and execution</li>
-        <li><i class="fas fa-check"></i> Code quality and best practices</li>
-        <li><i class="fas fa-check"></i> Future learning goals and roadmap</li>
-      </ul>
-      <div class="video-actions">
-        <button class="btn-primary">Watch Full Video</button>
-        <button class="btn-outline">Download Transcript</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <p><pre> © 2026 devloped by : Harsh Jethwa
-    </pre></p>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>

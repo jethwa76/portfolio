@@ -562,6 +562,14 @@ section {
     margin: 0 auto;
 }
 
+.section-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    font-style: italic;
+}
+
 /* ============================================
    About Section
    ============================================ */
@@ -1552,49 +1560,65 @@ section {
         box-shadow: var(--shadow-lg);
         transition: left var(--transition-base);
     }
-    
+
     .nav-links.active {
         left: 0;
     }
-    
+
     .mobile-toggle {
         display: flex;
     }
-    
+
     .mobile-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(7px, 7px);
     }
-    
+
     .mobile-toggle.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .mobile-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-roles {
         font-size: 1.2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .quick-info {
         grid-template-columns: 1fr;
     }
-    
+
     .achievements-grid {
         grid-template-columns: 1fr;
+    }
+
+    .education-card {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+
+    .education-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .course-tags {
+        justify-content: center;
     }
 }
 

@@ -447,79 +447,78 @@ document.addEventListener('keydown', (e) => {
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     // Get form values
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const subject = document.getElementById('subject').value.trim();
     const message = document.getElementById('message').value.trim();
     const honeypot = contactForm.querySelector('[name="honeypot"]').value;
-    
+
     // Clear previous errors
     document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-    
+
     // Validation
     let isValid = true;
-    
+
     if (name.length < 2) {
         document.getElementById('nameError').textContent = 'Please enter a valid name (at least 2 characters)';
         isValid = false;
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         document.getElementById('emailError').textContent = 'Please enter a valid email address';
         isValid = false;
     }
-    
+
     if (subject.length < 3) {
         document.getElementById('subjectError').textContent = 'Please enter a subject (at least 3 characters)';
         isValid = false;
     }
-    
+
     if (message.length < 10) {
         document.getElementById('messageError').textContent = 'Please enter a message (at least 10 characters)';
         isValid = false;
     }
-    
+
     // Check honeypot (spam protection)
     if (honeypot !== '') {
         isValid = false;
     }
-    
+
     if (!isValid) return;
-    
+
     // Show loading state
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
-    
-    // Simulate form submission (replace with actual backend call)
+
     try {
-        // This is where you would make an API call to your backend
-        // For demonstration, we'll simulate a delay
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Success
+        // Submit the form to Formspree
+        contactForm.submit();
+
+        // Success (Formspree will handle the redirect/response)
         const formStatus = document.getElementById('formStatus');
         formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
         formStatus.className = 'form-status success';
-        
+
         // Reset form
         contactForm.reset();
-        
+
         // Hide success message after 5 seconds
         setTimeout(() => {
             formStatus.textContent = '';
             formStatus.className = 'form-status';
         }, 5000);
-        
+
     } catch (error) {
         // Error
         const formStatus = document.getElementById('formStatus');
         formStatus.textContent = 'Oops! Something went wrong. Please try again.';
         formStatus.className = 'form-status error';
+        console.error('Form submission error:', error);
     } finally {
         // Reset button
         submitBtn.innerHTML = originalBtnText;
@@ -697,6 +696,27 @@ window.addEventListener('resize', debounce(() => {
     // Handle any resize-specific logic here
     console.log('Window resized');
 }, 250));
+
+// ============================================
+// Contact Form Mailto Handler
+// ============================================
+
+document.getElementById('sendEmailBtn').addEventListener('click', () => {
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const subject = document.getElementById('contact-subject').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+
+    if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields: Name, Email, Subject, and Message.');
+        return;
+    }
+
+    const body = `Hello Harsh,%0A%0AName: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+    const mailtoLink = `mailto:harshyjethwa2020@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+});
 
 // ============================================
 // Console Message

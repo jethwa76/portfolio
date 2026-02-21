@@ -286,15 +286,19 @@ filterBtns.forEach(btn => {
         
         const filter = btn.getAttribute('data-filter');
         
+       filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        // active button UI
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // filtering
         projectCards.forEach(card => {
-            const categories = card.getAttribute('data-category');
-            
-            if (filter === 'all') {
-                card.classList.remove('hidden');
-                setTimeout(() => {
-                    card.style.display = 'block';
-                }, 10);
-            } else if (categories.includes(filter)) {
+            const categories = card.getAttribute('data-category').toLowerCase();
+
+            if (filter === 'all' || categories.includes(filter)) {
                 card.classList.remove('hidden');
                 setTimeout(() => {
                     card.style.display = 'block';
@@ -308,6 +312,8 @@ filterBtns.forEach(btn => {
         });
     });
 });
+        });
+    });
 
 // ============================================
 // Project Modal
@@ -320,7 +326,7 @@ const projectDetails = {
     'qr-project': {
         title: 'QR Code Scanner & Generator',
         description: 'A comprehensive Java-based application that allows users to scan existing QR codes and generate new ones. The application features a modern GUI built with Java Swing and uses the ZXing library for QR code processing.',
-        image: 'assets/project-qr.jpg',
+        image: 'QR CODE.png',
         features: [
             'Scan QR codes from images or camera',
             'Generate custom QR codes with text or URLs',
@@ -330,56 +336,24 @@ const projectDetails = {
             'Support for multiple QR code formats'
         ],
         techStack: ['Java', 'Swing', 'ZXing Library', 'AWT'],
-        github: '#',
-        demo: '#'
+        github: 'https://github.com/jethwa76/QR-CODE',
+        demo: 'https://jethwa76.github.io/QR-CODE/'
     },
-    'todo-project': {
-        title: 'To-Do List Application',
-        description: 'A responsive and intuitive web-based to-do list application that helps users manage their daily tasks efficiently. The app features local storage persistence, ensuring tasks are saved even after closing the browser.',
-        image: 'assets/project-todo.jpg',
-        features: [
-            'Add, edit, and delete tasks',
-            'Mark tasks as complete',
-            'Filter tasks by status (all, active, completed)',
-            'Local storage for data persistence',
-            'Responsive design for all devices',
-            'Clean and minimalist UI'
-        ],
-        techStack: ['HTML5', 'CSS3', 'JavaScript', 'Local Storage API'],
-        github: '#',
-        demo: '#'
-    },
-    'calculator-project': {
-        title: 'Basic Calculator',
-        description: 'A clean and functional calculator application with a modern interface. Supports all standard arithmetic operations and features a responsive design that works perfectly on all devices.',
-        image: 'assets/project-calculator.jpg',
-        features: [
-            'Basic arithmetic operations (+, -, ×, ÷)',
-            'Clear and delete functions',
-            'Decimal number support',
-            'Keyboard input support',
-            'Error handling',
-            'Responsive design'
-        ],
-        techStack: ['HTML5', 'CSS3', 'JavaScript'],
-        github: '#',
-        demo: '#'
-    },
-    'food-project': {
-        title: 'Food Waste Management System',
-        description: 'A comprehensive system designed to help reduce food waste in communities. The application connects food donors with recipients and provides analytics on food waste reduction.',
-        image: 'assets/project-food.jpg',
-        features: [
-            'User registration for donors and recipients',
-            'Food donation listing and management',
-            'Real-time notification system',
-            'Analytics dashboard',
-            'Location-based matching',
-            'Database-driven architecture'
-        ],
-        techStack: ['Java', 'MySQL', 'JDBC', 'Java Swing'],
-        github: '#',
-        demo: '#'
+    'snake game': {
+    title: 'Snake Game',
+    description: 'An interactive and visually engaging Snake Game built to provide an enjoyable and responsive gaming experience. Players control the snake to collect food, grow in length, and achieve the highest possible score while avoiding collisions.',
+    image: 'snake game.png',
+    features: [
+        'Smooth and responsive snake movement',
+        'Dynamic food generation system',
+        'Real-time score tracking',
+        'Game over and restart functionality',
+        'Keyboard controls for intuitive gameplay',
+        'Clean and user-friendly game interface'
+    ],
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/jethwa76/Snake-game',
+    demo: 'https://jethwa76.github.io/Snake-game/'
     }
 };
 

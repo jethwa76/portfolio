@@ -772,29 +772,40 @@
                 </div>
                 
                 <div class="contact-form">
-                    <div class="form-group">
-                        <label for="contact-name">Name</label>
-                        <input type="text" id="contact-name" placeholder="Your Name">
-                    </div>
+                    <form id="contactForm" action="https://formspree.io/f/xpwzgvjq" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="contact-email">Email</label>
-                        <input type="email" id="contact-email" placeholder="your.email@example.com">
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="contact-subject">Subject</label>
-                        <textarea id="contact-subject" placeholder="Subject of your message" rows="1"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+                            <span class="error-message" id="subjectError"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="contact-message">Message</label>
-                        <textarea id="contact-message" placeholder="Your message here..." rows="5"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your message here..." rows="5" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        
+                        <!-- Honeypot for spam protection -->
+                        <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
 
-                    <button type="button" id="sendEmailBtn" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Send Email
-                    </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </button>
+                        
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -286,34 +286,21 @@ filterBtns.forEach(btn => {
         
         const filter = btn.getAttribute('data-filter');
         
-       filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-
-        // active button UI
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // filtering
+        // Filter projects
         projectCards.forEach(card => {
-            const categories = card.getAttribute('data-category').toLowerCase();
+            const categories = card.getAttribute('data-category').toLowerCase().split(' ');
+            const filterMatch = filter === 'all' || categories.includes(filter.toLowerCase());
 
-            if (filter === 'all' || categories.includes(filter)) {
+            if (filterMatch) {
                 card.classList.remove('hidden');
-                setTimeout(() => {
-                    card.style.display = 'block';
-                }, 10);
+                card.style.display = 'block';
             } else {
                 card.classList.add('hidden');
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
+                card.style.display = 'none';
             }
         });
     });
 });
-        });
-    });
 
 // ============================================
 // Project Modal

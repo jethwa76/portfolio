@@ -313,7 +313,7 @@ const projectDetails = {
     'qr-project': {
         title: 'QR Code Scanner & Generator',
         description: 'A comprehensive Java-based application that allows users to scan existing QR codes and generate new ones. The application features a modern GUI built with Java Swing and uses the ZXing library for QR code processing.',
-        image: 'QR CODE.png',
+        image: 'scanify.png',
         features: [
             'Scan QR codes from images or camera',
             'Generate custom QR codes with text or URLs',
@@ -323,8 +323,8 @@ const projectDetails = {
             'Support for multiple QR code formats'
         ],
         techStack: ['Java', 'Swing', 'ZXing Library', 'AWT'],
-        github: 'https://github.com/jethwa76/QR-CODE',
-        demo: 'https://jethwa76.github.io/QR-CODE/'
+        github: 'https://github.com/jethwa76/Scanify',
+        demo: 'https://jethwa76.github.io/Scanify/'
     },
     'snake game': {
     title: 'Snake Game',

@@ -475,25 +475,40 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
 
     try {
-        // Submit the form to Formspree
-        contactForm.submit();
+        // Submit the form to Formspree using Fetch API
+        const formData = new FormData(contactForm);
+        const response = await fetch('https://formspree.io/f/xpwzgvjq', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
-        // Success (Formspree will handle the redirect/response)
-        const formStatus = document.getElementById('formStatus');
-        formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-        formStatus.className = 'form-status success';
+        if (response.ok) {
+            // Success
+            const formStatus = document.getElementById('formStatus');
+            formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+            formStatus.className = 'form-status success';
 
-        // Reset form
-        contactForm.reset();
+            // Reset form
+            contactForm.reset();
 
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-            formStatus.textContent = '';
-            formStatus.className = 'form-status';
-        }, 5000);
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formStatus.textContent = '';
+                formStatus.className = 'form-status';
+            }, 5000);
+        } else {
+            // Formspree returned an error
+            const formStatus = document.getElementById('formStatus');
+            formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+            formStatus.className = 'form-status error';
+            console.error('Formspree error:', response.status, response.statusText);
+        }
 
     } catch (error) {
-        // Error
+        // Network or other error
         const formStatus = document.getElementById('formStatus');
         formStatus.textContent = 'Oops! Something went wrong. Please try again.';
         formStatus.className = 'form-status error';

@@ -359,6 +359,24 @@ const projectDetails = {
     techStack: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/jethwa76/TaskNest',
     demo: 'https://jethwa76.github.io/TaskNest/'
+},
+'calcxpert': {
+    title: 'Advanced Calculator',
+    description: 'Advanced Calculator is a modern and responsive web application designed to help students and professionals perform fast and accurate mathematical calculations. It features real-time evaluation and a clean UI/UX that ensures smooth and efficient usage.',
+    image: 'calcxpert.png',
+    features: [
+        'Perform basic arithmetic operations seamlessly',
+        'Real-time calculation updates',
+        'Keyboard input support for faster usage',
+        'Clear and delete functionality',
+        'Error handling for invalid expressions',
+        'Responsive and modern UI/UX design',
+        'Dark mode ready interface',
+        'Smooth button animations and interactions'
+    ],
+    techStack: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/jethwa76/CalcXpert',
+    demo: 'https://jethwa76.github.io/CalcXpert/'
 }
 };
 

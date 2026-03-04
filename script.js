@@ -345,7 +345,7 @@ const projectDetails = {
     'tasknest': {
     title: 'TaskNest',
     description: 'TaskNest is a modern and responsive To-Do productivity web application designed to help students and professionals efficiently organize, track, and manage daily tasks. It features smart task management, priority handling, and a clean UI/UX that enhances focus and workflow.',
-    image: 'tasknest.png',
+    image: 'tasknest.png+',
     features: [
         'Add, edit, and delete tasks seamlessly',
         'Priority levels for better task management',
@@ -358,7 +358,7 @@ const projectDetails = {
     ],
     techStack: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/jethwa76/TaskNest',
-    demo: 'https://jethwa76.github.io/TaskNest/'
+    demo: ' https://jethwa76.github.io/TaskNest/'
 },
 'calcxpert': {
     title: 'Advanced Calculator',
@@ -447,7 +447,7 @@ contactForm.addEventListener('submit', async (e) => {
 
     // Get form values
     const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const senderEmail = document.getElementById('email').value.trim();
     const subject = document.getElementById('subject').value.trim();
     const message = document.getElementById('message').value.trim();
     const honeypot = contactForm.querySelector('[name="honeypot"]').value;
@@ -464,7 +464,7 @@ contactForm.addEventListener('submit', async (e) => {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(senderEmail)) {
         document.getElementById('emailError').textContent = 'Please enter a valid email address';
         isValid = false;
     }
@@ -489,48 +489,43 @@ contactForm.addEventListener('submit', async (e) => {
     // Show loading state
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening Email...';
     submitBtn.disabled = true;
 
     try {
-        // Submit the form to Formspree using Fetch API
-        const formData = new FormData(contactForm);
-        const response = await fetch('https://formspree.io/f/xpwzgvjq', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
+        // Create email body with sender info - emails will go to harshyjethwa2020@gmail.com
+        const emailBody = `Hello Harsh,%0A%0AFrom: ${name}%0AEmail: ${senderEmail}%0A%0ASubject: ${subject}%0A%0AMessage:%0A${message}%0A%0A---%0ASent from your portfolio website`;
+        
+        // Encode the subject and body for mailto
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(emailBody.replace(/%0A/g, '\n'));
+        
+        // Create mailto link - emails will go to harshyjethwa2020@gmail.com
+        const mailtoLink = `mailto:harshyjethwa2020@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Open default email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        const formStatus = document.getElementById('formStatus');
+        formStatus.innerHTML = '<i class="fas fa-check-circle"></i> Your email client should open. If not, please <a href="mailto:harshyjethwa2020@gmail.com" style="color: inherit; text-decoration: underline;">click here</a> to send an email.';
+        formStatus.className = 'form-status success';
 
-        if (response.ok) {
-            // Success
-            const formStatus = document.getElementById('formStatus');
-            formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-            formStatus.className = 'form-status success';
+        // Reset form
+        contactForm.reset();
 
-            // Reset form
-            contactForm.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                formStatus.textContent = '';
-                formStatus.className = 'form-status';
-            }, 5000);
-        } else {
-            // Formspree returned an error
-            const formStatus = document.getElementById('formStatus');
-            formStatus.textContent = 'Oops! Something went wrong. Please try again.';
-            formStatus.className = 'form-status error';
-            console.error('Formspree error:', response.status, response.statusText);
-        }
+        // Hide success message after 8 seconds
+        setTimeout(() => {
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+        }, 8000);
 
     } catch (error) {
-        // Network or other error
+        // If mailto fails, show fallback message
         const formStatus = document.getElementById('formStatus');
-        formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+        formStatus.innerHTML = 'Please <a href="mailto:harshyjethwa2020@gmail.com" style="color: inherit; text-decoration: underline;">click here</a> to send me an email directly.';
         formStatus.className = 'form-status error';
-        console.error('Form submission error:', error);
+        console.error('Email error:', error);
     } finally {
         // Reset button
         submitBtn.innerHTML = originalBtnText;

@@ -342,10 +342,10 @@ const projectDetails = {
     github: 'https://github.com/jethwa76/Snake-game',
     demo: 'https://jethwa76.github.io/Snake-game/'
     },
-    'tasknest': {
-    title: 'TaskNest',
-    description: 'TaskNest is a modern and responsive To-Do productivity web application designed to help students and professionals efficiently organize, track, and manage daily tasks. It features smart task management, priority handling, and a clean UI/UX that enhances focus and workflow.',
-    image: 'tasknest.png+',
+    'taskflow': {
+    title: 'Taskflow',
+    description: 'Taskflow is a modern and responsive To-Do productivity web application designed to help students and professionals efficiently organize, track, and manage daily tasks. It features smart task management, priority handling, and a clean UI/UX that enhances focus and workflow.',
+    image: 'taskflow.png',
     features: [
         'Add, edit, and delete tasks seamlessly',
         'Priority levels for better task management',
@@ -357,8 +357,8 @@ const projectDetails = {
         'Smooth micro-interactions and animations'
     ],
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/jethwa76/TaskNest',
-    demo: ' https://jethwa76.github.io/TaskNest/'
+    github: 'https://github.com/jethwa76/Taskflow',
+    demo: 'https://taskflow-2-jikw.onrender.com'
 },
 'calcxpert': {
     title: 'Advanced Calculator',

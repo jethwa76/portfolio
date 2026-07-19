@@ -377,6 +377,57 @@ const projectDetails = {
     techStack: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/jethwa76/CalcXpert',
     demo: 'https://jethwa76.github.io/CalcXpert/'
+},
+'certificate-showcase': {
+    title: 'Certificate Showcase Website',
+    description: 'Certificate Showcase Website is a modern and responsive portfolio platform designed to display and organize professional certificates and achievements. It provides an elegant interface with interactive certificate cards, category-based filtering, and a premium UI/UX experience.',
+    image: 'certificate-showcase.png',
+    features: [
+        'Display certificates in a modern card-based layout',
+        'Category-based certificate filtering',
+        'Interactive certificate preview system',
+        'Responsive design for desktop, tablet, and mobile',
+        'Premium glassmorphism UI design',
+        'Smooth animations and hover effects',
+        'Organized achievement showcase',
+        'Easy navigation and user-friendly interface'
+    ],
+    techStack: [
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'UI/UX',
+        'Responsive Design'
+    ],
+    github: 'YOUR_GITHUB_LINK',
+    demo: 'YOUR_LIVE_DEMO_LINK'
+},
+'travelloop': {
+    title: 'TravelLoop Web App',
+    description: 'TravelLoop is a full-stack travel management web application designed to help users explore destinations, plan trips, manage bookings, and create personalized travel experiences. It provides an interactive interface with modern features for seamless travel planning.',
+    image: 'travelloop.png',
+    features: [
+        'User registration and secure authentication',
+        'Destination search and exploration',
+        'Personalized trip planning',
+        'Travel package and booking management',
+        'Hotel and transportation booking modules',
+        'Favorite destinations and trip history',
+        'Reviews and rating system',
+        'Responsive and modern UI/UX design',
+        'Secure data handling with authentication'
+    ],
+    techStack: [
+        'React.js',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'JWT',
+        'Google Maps API',
+        'Cloudinary'
+    ],
+    github: 'https://github.com/jethwa76/travelloop.git',
+    demo: 'https://traveloop-one.vercel.app/'
 }
 };
 
